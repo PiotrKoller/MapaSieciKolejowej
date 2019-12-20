@@ -1,0 +1,259 @@
+#header {height: 60px; text-align: center; font-family: 'Anton', sans-serif; font-size: 25px; position:absolute; z-index:1; width: 550px; background-color:white; border-radius: 10px; left:32%; top:3%; line-height:55px;}
+#map {height: 735px;  position: relative; z-index:0; }
+a {text-decoration: none; color: black;}
+#button {position: absolute; z-index:1; right: 5%; top:3%; font-family: 'Anton', sans-serif;}
+#rozklady {position: absolute; z-index:1; right: 4%; top:11%; font-family: 'Anton', sans-serif;}
+#izochrony {position: absolute; z-index:1; right: 3.75%; top:19%; font-family: 'Anton', sans-serif;}
+#trasa {position: absolute; z-index:1; right: 4.75%; top:27%; font-family: 'Anton', sans-serif;}
+
+ /* The Modal (background) */
+ .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content_1 {
+  background-color: #fefefe;
+  margin: 12% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 1200px; /* Could be more or less, depending on screen size */
+  border-radius: 25px;
+  font-family: 'Anton', sans-serif;
+  position: absolute;
+  left: 150px;
+}
+
+/* The Close Button */
+.close, .close2, .close3, .close4 {
+  color: #aaa;
+  float: right;
+  font-size: 40px;
+  font-weight: bold;
+  top: 5px;
+}
+
+.close:hover,
+.close:focus,
+.close2:hover,
+.close2:focus,
+.close3:hover,
+.close3:focus,
+.close4:hover,
+.close4:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+} 
+
+.button {
+  background-color: black; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 15px;
+  border-radius: 30px;
+  font-family: 'Anton', sans-serif;
+}
+
+.button:hover {
+ background-color: white;
+ color: black;
+ cursor: pointer;
+}
+
+#header:hover {
+ background-color: black;
+ color: white;
+ cursor: pointer;   
+}
+
+#header:hover a{
+  color:white;
+}
+
+a:hover{
+    text-decoration: none;
+    color: white;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.linki{
+  color: #3d3d29;
+  text-decoration: underline;
+}
+
+.linki:hover{
+  color: black;
+  text-decoration: underline;
+}
+
+#linki{
+  padding-left: 40px;
+  color: white;
+}
+
+#lista{
+  position: relative;
+  width: 200px;
+  float: left;
+}
+
+#pic{
+  position: relative;
+  left:250px;
+  width: 500px;
+  height: 200px;
+  float: left;
+}
+
+#pic.p1 {
+  background-image: url("images/metro.jpg");
+}
+#pic.p2 {
+  background-image: url("images/wielk.jpg");
+}
+#pic.p3 {
+  background-image: url("images/polregio.jpg");
+}
+#pic.p4 {
+  background-image: url("images/pkp.jpg");
+}
+
+#legenda {
+  position: absolute;
+  height: 80px;
+  width: 125px;
+  background: rgba(255, 255, 255, 0.75);
+  z-index: 1;
+  top: 80%;
+  right: 4%;
+  border-radius: 25px;
+  font-family: 'Anton', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.legenda{
+  font-size: 13px;
+}
+
+#glowna{color: red;}
+#odgaleziona{color:blue}
+
+.przyodj{
+  background-color: #0066ff;
+  font-family: 'Anton', sans-serif;
+  border-radius: 3px;
+  color: white;
+}
+
+.przyodj:hover{
+  background-color: white;
+  font-family: 'Anton', sans-serif;
+  border-radius: 3px;
+  color: #0066ff;
+  cursor: pointer;
+}
+
+#button1,#button2{
+  color: white;
+}
+
+#button1:hover,#button2:hover{
+  color: #0066ff;
+}
+
+
+#ciekawe_linki{
+  padding-left: 40px;
+  color: black;
+}
+
+nav ul{height:300px; width:90%;}
+nav ul{overflow:hidden; overflow-y:scroll;}
+
+input {
+  width: 50%;
+  height: 30px;
+  margin-left: 5%;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+.stacje{
+  border: 1px solid black;
+  border-radius: 5px;
+  padding-left: 20px;
+  background-color: #f0f0f5;
+}
+
+.rb1{
+  float: right;
+}
+
+#trasa1{
+  background-color: white;
+  position: absolute; 
+  z-index:1; 
+  right:2.5%; 
+  top:35%; 
+  font-family: 'Anton', sans-serif;
+  border-radius: 10px;
+  width:180px;
+  text-align:center;
+  display:none;
+  font-size: 12px;
+}
+
+#isodiv{
+  background-color: white;
+  position: absolute; 
+  z-index:1; 
+  right:2.5%; 
+  top:35%; 
+  font-family: 'Anton', sans-serif;
+  border-radius: 10px;
+  width:180px;
+  text-align:center;
+  display:none;
+  font-size: 12px;
+  height: 110px;
+}
+
+input[type=checkbox] {
+    transform: scale(0.6);
+}
+
+label {
+  display: inline-block;
+}
+
+#rozklado,#rozkladp{
+  background-color: white;
+  position: absolute; 
+  z-index:1; 
+  left:0%; 
+  top:25%; 
+  font-family: 'Anton', sans-serif;
+  border-radius: 10px;
+  width:250px;
+  text-align:center;
+  display:none;
+  font-size: 12px;
+  height: 400px;
+}
