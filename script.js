@@ -42,6 +42,8 @@ var stacje_icon = L.icon({
   popupAnchor: [20, -28]
 });
 
+window.odjazdname = "xd";
+
 $.ajax({
     type: "POST",
     url: stacje,
@@ -53,7 +55,7 @@ $.ajax({
       },
         onEachFeature: function (feature, layer) {
 			    layer.bindPopup('<h1><center>'+feature.properties.nazwa+'</h1><h3><center>Liczba torów: '+feature.properties.liczba_torow+'</center></h3><h3><center>Liczba peronów: '+feature.properties.liczba_peronow+'</center></h3><h3><center><button class="przyodj" id="roz1" onclick="showOrHide2()">ODJAZDY</button><button class="przyodj" onclick="showOrHide3()">  PRZYJAZDY</button></center></h3>');
-          layer.on("click",function(e){map.setView(e.latlng, 13);})
+          layer.on("click",function(e){map.setView(e.latlng, 13);window.odjazdname = feature.properties.odjazdy;})
 		  }
       }).addTo(map);
     }
@@ -417,6 +419,7 @@ function showOrHide1() {
 
 function showDiv2() {
   document.getElementById("rozklado").style.display = "block";
+  console.log(window.odjazdname);
 }
 
 function closeDiv2() {
@@ -444,3 +447,4 @@ function showOrHide3() {
 if(document.getElementById("isodiv").style.display == "block") alert("jebut")
 if(document.getElementById("isodiv").style.display == "block")document.getElementById("trasa1").style.display == "none";
 if(document.getElementById("trasa1").style.display == "block")document.getElementById("isodiv").style.display == "none";
+
