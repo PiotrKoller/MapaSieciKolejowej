@@ -255,5 +255,12 @@ label {
   text-align:center;
   display:none;
   font-size: 12px;
-  height: 400px;
+  height: 350px;
+}
+
+#roc{
+  position: relative;
+  top: 35%;
+  transform: translateY(-50%);
+  font-size: 15px;
 }

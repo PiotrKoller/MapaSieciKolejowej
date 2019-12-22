@@ -55,7 +55,8 @@ $.ajax({
       },
         onEachFeature: function (feature, layer) {
 			    layer.bindPopup('<h1><center>'+feature.properties.nazwa+'</h1><h3><center>Liczba torów: '+feature.properties.liczba_torow+'</center></h3><h3><center>Liczba peronów: '+feature.properties.liczba_peronow+'</center></h3><h3><center><button class="przyodj" id="roz1" onclick="showOrHide2()">ODJAZDY</button><button class="przyodj" onclick="showOrHide3()">  PRZYJAZDY</button></center></h3>');
-          layer.on("click",function(e){map.setView(e.latlng, 13);window.odjazdname = feature.properties.odjazdy;})
+          layer.on("click",function(e){map.setView(e.latlng, 13);
+            window.odjazdname = feature.properties.odjazdy;window.odjazdname = window.odjazdname.replace(/;/g,"<br>");document.getElementById("roc").innerHTML = "<h2>"+feature.properties.nazwa.toUpperCase() + "</h2><br>" +window.odjazdname;})
 		  }
       }).addTo(map);
     }
@@ -152,6 +153,8 @@ $("ul a").hover(function() {
   $("#pic").removeClass().addClass($(this).attr('rel'));
 });
 
+window.cache = "xd1";
+
 $.ajax({
     type: "POST",
     url: stacje,
@@ -160,7 +163,7 @@ $.ajax({
       var nav=$("<nav></nav>");
       var mylist=$("<ul id='rozklady_lista'></ul>");
       for (var i = 0; i < response.features.length; i++) {
-        var butt = "<li class='stacje'>"+response.features[i].properties.nazwa+"<button class='przyodj rb1' onclick='showOrHide2()'>ODJAZDY</button><button class='przyodj rb1' onclick='showOrHide2()'>  PRZYJAZDY</button></li>";
+        var butt = "<li class='stacje'><a href='#' onclick=''>"+response.features[i].properties.nazwa+"</a><button class='przyodj rb1' onclick='showOrHide2()'>ODJAZDY</button><button class='przyodj rb1' onclick='showOrHide2()'>  PRZYJAZDY</button></li>";
         //mylist.append($("<li class='stacje'></li>").text(response.features[i].properties.nazwa));
         mylist.append($(butt));
       } 
@@ -419,7 +422,6 @@ function showOrHide1() {
 
 function showDiv2() {
   document.getElementById("rozklado").style.display = "block";
-  console.log(window.odjazdname);
 }
 
 function closeDiv2() {
@@ -447,4 +449,6 @@ function showOrHide3() {
 if(document.getElementById("isodiv").style.display == "block") alert("jebut")
 if(document.getElementById("isodiv").style.display == "block")document.getElementById("trasa1").style.display == "none";
 if(document.getElementById("trasa1").style.display == "block")document.getElementById("isodiv").style.display == "none";
+
+
 
