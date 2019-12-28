@@ -258,9 +258,14 @@ label {
   height: 350px;
 }
 
-#roc{
+#roc, #roc2{
   position: relative;
   top: 35%;
-  transform: translateY(-50%);
-  font-size: 15px;
+  transform: translateY(-40%);
+  font-size: 12px;
+  word-wrap:break-word;
+}
+
+#lista2{
+  cursor: pointer;
 }

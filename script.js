@@ -43,6 +43,7 @@ var stacje_icon = L.icon({
 });
 
 window.odjazdname = "xd";
+window.przyjazdname = "xd";
 
 $.ajax({
     type: "POST",
@@ -56,7 +57,9 @@ $.ajax({
         onEachFeature: function (feature, layer) {
 			    layer.bindPopup('<h1><center>'+feature.properties.nazwa+'</h1><h3><center>Liczba torów: '+feature.properties.liczba_torow+'</center></h3><h3><center>Liczba peronów: '+feature.properties.liczba_peronow+'</center></h3><h3><center><button class="przyodj" id="roz1" onclick="showOrHide2()">ODJAZDY</button><button class="przyodj" onclick="showOrHide3()">  PRZYJAZDY</button></center></h3>');
           layer.on("click",function(e){map.setView(e.latlng, 13);
-            window.odjazdname = feature.properties.odjazdy;window.odjazdname = window.odjazdname.replace(/;/g,"<br>");document.getElementById("roc").innerHTML = "<h2>"+feature.properties.nazwa.toUpperCase() + "</h2><br>" +window.odjazdname;})
+            window.odjazdname = feature.properties.odjazdy;window.odjazdname = window.odjazdname.replace(/;/g,"<br><hr>");document.getElementById("roc").innerHTML = "<h2>"+feature.properties.nazwa.toUpperCase() + "</h2><br><hr>" +window.odjazdname;
+            window.przyjazdname = feature.properties.przyjazdy;window.przyjazdname = window.przyjazdname.replace(/;/g,"<br><hr>");document.getElementById("roc2").innerHTML = "<h2>"+feature.properties.nazwa.toUpperCase() + "</h2><br><hr>" +window.przyjazdname;         
+          })
 		  }
       }).addTo(map);
     }
@@ -101,12 +104,6 @@ span.onclick = function() {
   modal.style.display = "none";
 }
 
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-} 
-
 var modal2 = document.getElementById("myModal2");
 var btn2 = document.getElementById("rozkladyBtn");
 var span2 = document.getElementsByClassName("close2")[0];
@@ -119,41 +116,35 @@ span2.onclick = function() {
   modal2.style.display = "none";
 }
 
-window.onclick = function(event) {
-  if (event.target == modal2) {
-    modal2.style.display = "none";
-  }
-} 
-
+var modal3 = document.getElementById("rozklado");
 var span3 = document.getElementsByClassName("close3")[0];
 
 span3.onclick = function() {
   rozklado.style.display = "none";
 }
 
-window.onclick = function(event) {
-  if (event.target == rozklado) {
-    rozklado.style.display = "none";
-  }
-} 
-
+var modal4 = document.getElementById("rozkladp");
 var span4 = document.getElementsByClassName("close4")[0];
 
 span4.onclick = function() {
   rozkladp.style.display = "none";
 }
 
-window.onclick = function(event) {
-  if (event.target == rozkladp) {
-    rozkladp.style.display = "none";
+window.addEventListener("click", function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
   }
-} 
+  if (event.target == modal2) {
+    modal2.style.display = "none";
+  }
+  if (event.target == modal3) {
+    modal3.style.display = "none";
+  }
+});
 
 $("ul a").hover(function() {
   $("#pic").removeClass().addClass($(this).attr('rel'));
 });
-
-window.cache = "xd1";
 
 $.ajax({
     type: "POST",
@@ -163,14 +154,18 @@ $.ajax({
       var nav=$("<nav></nav>");
       var mylist=$("<ul id='rozklady_lista'></ul>");
       for (var i = 0; i < response.features.length; i++) {
-        var butt = "<li class='stacje'><a href='#' onclick=''>"+response.features[i].properties.nazwa+"</a><button class='przyodj rb1' onclick='showOrHide2()'>ODJAZDY</button><button class='przyodj rb1' onclick='showOrHide2()'>  PRZYJAZDY</button></li>";
-        //mylist.append($("<li class='stacje'></li>").text(response.features[i].properties.nazwa));
+        var butt = '<li class="stacje" onclick="funct();map.setView(['+response.features[i].properties.y+","+response.features[i].properties.x+'],13);">'+response.features[i].properties.nazwa+'</li>';
         mylist.append($(butt));
       } 
       nav.append(mylist);
       nav.appendTo($("#lista2"));
     }
 });
+
+function funct(){
+  var MyModal2 = document.getElementById("myModal2");
+  MyModal2.style.display = "none";
+};
 
 function search() { 
     let input = document.getElementById('myInput').value 
@@ -449,6 +444,7 @@ function showOrHide3() {
 if(document.getElementById("isodiv").style.display == "block") alert("jebut")
 if(document.getElementById("isodiv").style.display == "block")document.getElementById("trasa1").style.display == "none";
 if(document.getElementById("trasa1").style.display == "block")document.getElementById("isodiv").style.display == "none";
+
 
 
 
