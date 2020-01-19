@@ -192,7 +192,6 @@ $(document).ready(function(){
 });
 
 function isochrones(e) {
-  //alert('dsdsfd');
   if(map.hasLayer(result))map.removeLayer(result);
 	if(map.hasLayer(marker))map.removeLayer(marker);
 	if(marker!=null)marker=null;
@@ -262,7 +261,6 @@ function isChecked()
             return L.circleMarker(latlng, redMarker);
         },
           onEachFeature: function (feature, layer) {
-            /*
             var marker1 = layer.bindPopup('<h4><center>'+feature.properties.nazwa+'</center></h4>');
             marker1.on('mouseover', function (e) {
               this.openPopup();
@@ -270,7 +268,6 @@ function isChecked()
             marker1.on('mouseout', function (e) {
               this.closePopup();
             });
-            */
           }
         }).addTo(map);
       }
