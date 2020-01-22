@@ -15,7 +15,7 @@
 <div id="map"></div>
 <div id="button"><button id="myBtn" class="button">INFO</button></div>
 <div id="rozklady"><button id="rozkladyBtn" class="button">STACJE</button></div>
-<div id="izochrony"><button id="izochronyBtn" class="button" onclick="showOrHide1()">IZOCHRONY</button></div>
+<div id="izochrony"><button id="izochronyBtn" class="button" onclick="showOrHide1()">IZODYSTANTY</button></div>
 <div id="trasa"><button id="trasaBtn" class="button" onclick="showOrHide()">TRASA</button></div>
 
 <!-- The Modal -->
@@ -48,13 +48,13 @@
 </div>
 <div id="isodiv">  
   <div><input type="checkbox" value="isochrones"id="isochrones" onclick="isChecked()"></div>
-  <div><input type="text" id="test" value="10000"></div>
-  <div><button id="set">set [m]</button></div>
+  <div><input type="text" id="test" value="20000"></div>
+  <div><button id="set">ustaw [m]</button></div>
 </div>
 <div id="legenda"><p class="legenda" id="glowna">Linia główna</p><p class="legenda" id="odgaleziona">Linia odgałęziona</p></div>
 <div id="trasa1">
   <div><label><input type="checkbox" value="fromatob"id="fromatob" onclick="isChecked2()">trasowanie </label></div>
-  <div><p>Wyczyść dane:  <button id="clear">clear</button></p></div>
+  <div><p>Wyczyść dane:  <button id="clear">wyczyść</button></p></div>
 </div>
 <div id="rozklado"><span class="close3">&times;</span><div id="roc"></div></div>
 <div id="rozkladp"><span class="close4">&times;</span><div id="roc2"></div></div>

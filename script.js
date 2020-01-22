@@ -231,9 +231,9 @@ $.ajax({
 		result = L.geoJson(data, {
 			style: function (feature) {
 					return {
-						color: "red",
-						fillColor: "red",
-						weight: 1
+						color: "blue",
+						fillColor: "blue",
+						weight: 3
 			};
 		},
 	}	);
@@ -283,13 +283,13 @@ var route;
 function fromatob(e){
 if(map.hasLayer(route))map.removeLayer(route);
  if(startPoint==null){
- startPoint=new L.Marker();
- startPoint.setLatLng(e.latlng,{draggable:true})
+ startPoint=new L.Marker({icon:greenIcon});
+ startPoint.setLatLng(e.latlng)
  .addTo(map)
  .bindPopup("<b>Punkt początkowy</b><br>Współrzędne: "+e.latlng.lng.toFixed(2)+","+e.latlng.lat.toFixed(2)).openPopup();
  }else if (destPoint==null){
- destPoint=new L.Marker();
- destPoint.setLatLng(e.latlng,{draggable:true})
+ destPoint=new L.Marker({icon:greenIcon});
+ destPoint.setLatLng(e.latlng)
  .addTo(map)
  .bindPopup("<b>Punkt końcowy</b><br>Współrzędne: "+e.latlng.lng.toFixed(2)+","+e.latlng.lat.toFixed(2)).openPopup();
  }
@@ -326,7 +326,8 @@ $.ajax({
  route = L.geoJson(data, {
  style: function (feature) {
  return {
- color: "blue"//kolor wytyczonej trasy
+ color: "red",//kolor wytyczonej trasy
+ weight: 5
  };
  },
  onEachFeature: function (feature, layer) {
@@ -441,7 +442,6 @@ function showOrHide3() {
 if(document.getElementById("isodiv").style.display == "block") alert("jebut")
 if(document.getElementById("isodiv").style.display == "block")document.getElementById("trasa1").style.display == "none";
 if(document.getElementById("trasa1").style.display == "block")document.getElementById("isodiv").style.display == "none";
-
 
 
 

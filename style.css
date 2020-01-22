@@ -1,6 +1,7 @@
-#header {height: 60px; text-align: center; font-family: 'Anton', sans-serif; font-size: 25px; position:absolute; z-index:1; width: 550px; background-color:white; border-radius: 10px; left:32%; top:3%; line-height:55px;}
+#header {height: 60px; text-align: center; font-family: 'Anton', sans-serif; font-size: 25px; position:absolute; z-index:1; width: 550px; background-color:red; border-radius: 10px; left:32%; top:3%; line-height:55px; color: white;}
 #map {height: 735px;  position: relative; z-index:0; }
 a {text-decoration: none; color: black;}
+#header a {color: white;}
 #button {position: absolute; z-index:1; right: 3%; top:3%; font-family: 'Anton', sans-serif;}
 #rozklady {position: absolute; z-index:1; right: 3%; top:11%; font-family: 'Anton', sans-serif;}
 #izochrony {position: absolute; z-index:1; right: 3%; top:19%; font-family: 'Anton', sans-serif;}
@@ -56,7 +57,7 @@ a {text-decoration: none; color: black;}
 } 
 
 .button {
-  background-color: black; 
+  background-color: blue; 
   border: none;
   color: white;
   padding: 15px 32px;
@@ -65,28 +66,29 @@ a {text-decoration: none; color: black;}
   font-size: 15px;
   border-radius: 30px;
   font-family: 'Anton', sans-serif;
-  width: 120px;
+  width: 140px;
+  margin-right:-10px;
 }
 
 .button:hover {
  background-color: white;
- color: black;
+ color: blue;
  cursor: pointer;
 }
 
 #header:hover {
- background-color: black;
- color: white;
+ background-color: white;
+ color: red;
  cursor: pointer;   
 }
 
 #header:hover a{
-  color:white;
+  color:red;
 }
 
 a:hover{
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 ul {
