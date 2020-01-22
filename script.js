@@ -42,6 +42,15 @@ var stacje_icon = L.icon({
   popupAnchor: [20, -28]
 });
 
+var greenIcon = new L.Icon({
+  iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
 window.odjazdname = "xd";
 window.przyjazdname = "xd";
 
@@ -196,9 +205,9 @@ function isochrones(e) {
 	if(map.hasLayer(marker))map.removeLayer(marker);
 	if(marker!=null)marker=null;
 	if(marker==null){
-	marker = new L.marker()
-	marker.setLatLng(e.latlng)
-	.addTo(map);
+  marker = new L.marker()
+  marker.setLatLng(e.latlng).addTo(map);
+  marker.setIcon(greenIcon);
 	}
 	if(marker!=null){
 	value=$("#test").val();
@@ -283,15 +292,17 @@ var route;
 function fromatob(e){
 if(map.hasLayer(route))map.removeLayer(route);
  if(startPoint==null){
- startPoint=new L.Marker({icon:greenIcon});
+ startPoint=new L.Marker();
  startPoint.setLatLng(e.latlng)
  .addTo(map)
  .bindPopup("<b>Punkt początkowy</b><br>Współrzędne: "+e.latlng.lng.toFixed(2)+","+e.latlng.lat.toFixed(2)).openPopup();
+ startPoint.setIcon(greenIcon);
  }else if (destPoint==null){
- destPoint=new L.Marker({icon:greenIcon});
+ destPoint=new L.Marker();
  destPoint.setLatLng(e.latlng)
  .addTo(map)
  .bindPopup("<b>Punkt końcowy</b><br>Współrzędne: "+e.latlng.lng.toFixed(2)+","+e.latlng.lat.toFixed(2)).openPopup();
+ destPoint.setIcon(greenIcon);
  }
  if(startPoint!=null && destPoint!=null){
  var x1=startPoint.getLatLng().lng;
