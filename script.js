@@ -1,6 +1,9 @@
+//checkboxy domyślnie jako false
+
 $('#fromatob').attr('checked', false);
 $('#isochrones').attr('checked', false);
 
+//podkłady osm i ortofotomapa
 var osm = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BYSA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18,
@@ -28,9 +31,11 @@ var baseMaps = {
     "Ortofotomapa": orto
 };
 
+// przyciski zmiany warstw i skali
 L.control.layers(null,baseMaps,{position: 'topleft'}).addTo(map);
 L.control.scale().addTo(map);
 
+//dodanie warstw do mapy z geoservera
 var stacje = "http://localhost:8080/geoserver/geo/wfs?service=WFS&version=1.1.0&typename=geo:stacje_kolejowe&request=GetFeature&typeNames=namespace:featuretype&outputFormat=application/json"
 var tory = "http://localhost:8080/geoserver/geo/wfs?service=WFS&version=1.1.0&typename=geo:tory_kolejowe&request=GetFeature&typeNames=namespace:featuretype&outputFormat=application/json"
 var drogi = "http://localhost:8080/geoserver/geo/wfs?service=WFS&version=1.1.0&typename=geo:drogi_500_noded&request=GetFeature&typeNames=namespace:featuretype&outputFormat=application/json"
@@ -51,8 +56,8 @@ var greenIcon = new L.Icon({
   shadowSize: [41, 41]
 });
 
-window.odjazdname = "xd";
-window.przyjazdname = "xd";
+window.odjazdname = "default";
+window.przyjazdname = "default";
 
 $.ajax({
     type: "POST",
@@ -101,6 +106,7 @@ $.ajax({
     }
 });
 
+//opcje okienek
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
@@ -155,6 +161,7 @@ $("ul a").hover(function() {
   $("#pic").removeClass().addClass($(this).attr('rel'));
 });
 
+//pobranie listy stacji z Geoservera
 $.ajax({
     type: "POST",
     url: stacje,
@@ -171,11 +178,13 @@ $.ajax({
     }
 });
 
+//opcje okienek
 function funct(){
   var MyModal2 = document.getElementById("myModal2");
   MyModal2.style.display = "none";
 };
 
+//wwyszukiwarka
 function search() { 
     let input = document.getElementById('myInput').value 
     input=input.toLowerCase(); 
@@ -191,6 +200,7 @@ function search() {
     } 
 } 
 
+//izodystanty
 var value=1000;
 var marker;
 var result;
@@ -252,7 +262,7 @@ $.ajax({
 })
 };
 
-
+//funkcje checkboxów
 function isChecked()
 {
   if (document.getElementById('isochrones').checked) 
@@ -285,6 +295,7 @@ function isChecked()
   }
 }
 
+//trasowanie
 var startPoint=null;
 var destPoint=null;
 var route;
@@ -355,6 +366,7 @@ var redMarker = {
   fillColor: "#ff0000"
 }
 
+//opcje checkboxów
 function isChecked2()
 {
   if (document.getElementById('fromatob').checked) 
@@ -388,6 +400,7 @@ function isChecked2()
   }
 }
 
+//przycisk czyszczący
 var clearButton = document.getElementById("clear");
 clearButton.addEventListener('click'
 , function(e) {
@@ -398,6 +411,7 @@ if(startPoint!=null)startPoint=null;
  if(destPoint!=null)destPoint=null;
 });
 
+//opcje okienek
 function showDiv() {
   document.getElementById("trasa1").style.display = "block";
 }
@@ -450,7 +464,6 @@ function showOrHide3() {
 	else showDiv3()
 }
 
-if(document.getElementById("isodiv").style.display == "block") alert("jebut")
 if(document.getElementById("isodiv").style.display == "block")document.getElementById("trasa1").style.display == "none";
 if(document.getElementById("trasa1").style.display == "block")document.getElementById("isodiv").style.display == "none";
 

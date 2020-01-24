@@ -18,10 +18,10 @@
 <div id="izochrony"><button id="izochronyBtn" class="button" onclick="showOrHide1()">IZODYSTANTY</button></div>
 <div id="trasa"><button id="trasaBtn" class="button" onclick="showOrHide()">TRASA</button></div>
 
-<!-- The Modal -->
+<!-- Okienko informacyjne -->
 <div id="myModal" class="modal">
 
-  <!-- Modal content -->
+  <!-- Zawartość -->
   <div class="modal-content_1">
     <span class="close">&times;</span>
     <p>Rozwój transportu zbiorowego jest jednym z największych wyzwań stojących przed współczesnym światem. Z tego względu podejmowanych jest coraz więcej inicjatyw mających na celu usprawnienie działalności kolei. Jednym z najważniejszych takich projektów jest uruchomiona w 2018 r. Poznańska Kolej Metropolitalna.</p>
@@ -38,6 +38,8 @@
     <div id="pic"></div>
   </div>
 </div>
+
+<!-- Wybór stacji -->
 <div id="myModal2" class="modal">  
   <div class="modal-content_1">
     <span class="close2">&times;</span>
@@ -46,16 +48,24 @@
     </p>
   </div>
 </div>
+
+<!-- IZODYSTANTY -->
 <div id="isodiv">  
-  <div><label><input type="checkbox" value="isochrones"id="isochrones" onclick="isChecked()">Wyznaczanie izodsytanty</label></div>
+  <div><label><input type="checkbox" value="isochrones"id="isochrones" onclick="isChecked()">Zaznacz opcję</label></div>
   <div><input type="text" id="test" value="20000"></div>
   <div><button id="set">ustaw [m]</button></div>
 </div>
+
+<!-- LEGENDA -->
 <div id="legenda"><p class="legenda" id="glowna">Linia główna</p><p class="legenda" id="odgaleziona">Linia odgałęziona</p></div>
+
+<!-- TRASOWANIE -->
 <div id="trasa1">
-  <div><label><input type="checkbox" value="fromatob"id="fromatob" onclick="isChecked2()">Wyznaczanie trasy</label></div>
+  <div><label><input type="checkbox" value="fromatob"id="fromatob" onclick="isChecked2()">Zaznacz opcję</label></div>
   <div><p>Wyczyść dane:  <button id="clear">wyczyść</button></p></div>
 </div>
+
+<!-- Okna rozkładów -->
 <div id="rozklado"><span class="close3">&times;</span><div id="roc"></div></div>
 <div id="rozkladp"><span class="close4">&times;</span><div id="roc2"></div></div>
 
